@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import check from './checkimg.png';
+import checkimg from './checkimg.png';
 
 export class GroceryList extends Component{
     state={
@@ -9,7 +9,7 @@ export class GroceryList extends Component{
     }
 
     onChangeEvent(e){
-        this.setState({userInput:e})
+        this.setState({userInput:e});
     }
     addItem(inputWord){
         if(inputWord ===""){
@@ -22,15 +22,16 @@ export class GroceryList extends Component{
             this.setState({groceryList:ListArray,userInput:""})
         }
     }
-    crossedWord(event){
-        const word=event.target;
-        word.classList.toggle('crossed');
-    }
     deleteItem(){
         let ListArray=this.state.groceryList;
         ListArray=[];
         this.setState({groceryList:ListArray})
     }
+    crossedWord(event){
+        const word=event.target;
+        word.classList.toggle('crossed');
+    }
+
     onFormSubmit(e){
         e.preventDefault();
     }
@@ -51,7 +52,7 @@ export class GroceryList extends Component{
             <ul>
                 {this.state.groceryList.map((item,index)=>(
                     <li onClick = {this.crossedWord} key={index}>
-                    <img scr={check} width="50px" alt='check'/>
+                    <img src={checkimg} width="50px" alt='check'/>
                     {item} </li>
                 ))}
             </ul>
